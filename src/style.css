@@ -1,0 +1,326 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* BASE STYLES */
+
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background: #a8dcd9;
+}
+
+h1 {
+  margin: 20px auto 0;
+  font-family: "Abril Fatface", serif;
+  font-size: 6rem;
+  letter-spacing: 0;
+  text-align: center;
+  color: #fff;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--link-colour);
+  transition: all 100ms ease-in-out;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: var(--hover-colour);
+}
+
+a:active {
+  position: relative;
+  left: 1px;
+  top: 1px;
+  color: var(--active-colour);
+}
+
+select {
+  display: block;
+  margin: 20px auto;
+  padding: 4px 5px;
+  font-size: 1rem;
+  border: 1.5px solid #000;
+  transition: background-color, 200ms ease-in-out;
+}
+
+select:hover,
+select:focus {
+  cursor: pointer;
+  background-color: var(--select-colour);
+}
+
+footer {
+  margin: 40px auto 30px;
+  text-align: center;
+}
+
+/* GRID LAYOUT */
+
+.city-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0 auto 15px;
+  width: 80%;
+}
+
+/* CARD STYLES */
+
+.city-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin: 5px;
+  padding: 16px;
+  max-width: 100%;
+  min-width: 0;
+  border: solid 2px #000;
+  background-color: #fff;
+}
+
+.city-card.main {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.city-card.additional.two {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.city-card.additional.three {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.city-card.additional.four {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.city-card.additional.five {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+/* CARD TEXT STYLES */
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.city-title {
+  margin: 0;
+  max-width: 100%;
+  font-size: 4rem;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Abril Fatface", serif;
+}
+
+.city-time {
+  margin-left: 5px;
+  font-size: 4rem;
+  font-weight: bold;
+  overflow: visible;
+  font-family: "Poiret One", sans-serif;
+}
+
+.city-date {
+  margin: 5px 0 0;
+  text-align: left;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.tz-code {
+  display: none;
+  grid-area: code;
+}
+
+/* COLOUR THEMES */
+
+.morning {
+  background: #a8dcd9;
+  background: linear-gradient(to bottom, #a8dcd9 0%, #f8e3d8 100%);
+  --link-colour: #bc0066;
+  --hover-colour: #800442;
+  --active-colour: #ff4093;
+  --select-colour: #faf1ec;
+}
+
+.morning ::selection {
+  background-color: #800442;
+  color: #fff;
+}
+
+.afternoon {
+  background: #b5f2ff;
+  background: linear-gradient(to bottom, #3c80aa 0%, #b5f2ff 100%);
+  --link-colour: #077b52;
+  --hover-colour: #056c6b;
+  --active-colour: #02ac7d;
+  --select-colour: #e6f7fb;
+}
+
+.afternoon ::selection {
+  background-color: #056c6b;
+  color: #fff;
+}
+
+.evening {
+  background: #c86a89;
+  background: linear-gradient(to bottom, #dfbede 0%, #c86a89 100%);
+  --link-colour: #ffde7e;
+  --hover-colour: #ffc99d;
+  --active-colour: #f9f871;
+  --select-colour: #fcf1fb;
+}
+
+.evening ::selection {
+  background-color: #ffde7e;
+}
+
+.night {
+  background: #09203b;
+  background: linear-gradient(to bottom, #09203b 0%, #037e9a 100%);
+  --link-colour: #96eeff;
+  --hover-colour: #78d1ef;
+  --active-colour: #00c4ff;
+  --select-colour: #fbfaef;
+}
+
+.night ::selection {
+  background-color: #b1f2fe;
+}
+
+.night footer::selection {
+  color: #000;
+}
+
+.night footer {
+  color: #fff;
+}
+
+.night h1 {
+  color: #fffcd9;
+}
+
+.night .city-card {
+  background-color: #fffcd9;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/*SMALL*/
+@media screen and (min-width: 500px) {
+  h1 {
+    font-size: calc(3rem + 3vw);
+  }
+  .city-card-grid {
+    width: 75%;
+  }
+}
+
+/* MEDIUM */
+@media screen and (min-width: 640px) {
+  body {
+    height: 100vh;
+  }
+  h1 {
+    letter-spacing: 0.2rem;
+  }
+  .city-card-grid {
+    grid: auto-flow 1fr / repeat(2, 1fr);
+    width: 80%;
+  }
+
+  /*Main card*/
+  .city-card.main {
+    grid-area: 1 / 1 / 3 / 2;
+    grid-template:
+      "title title" 1fr
+      "time time" 50%
+      "code date" 1fr;
+  }
+  .city-card.main .city-title {
+    align-self: first baseline;
+    justify-self: center;
+    font-size: calc(1.8rem + 0.8vw);
+  }
+  .city-card.main .city-time {
+    align-self: center;
+    justify-self: center;
+    font-size: calc(3rem + 0.8vw);
+  }
+
+  /*Additional cards*/
+  .city-title {
+    font-size: calc(0.5rem + 1.7vw);
+  }
+  .city-time {
+    font-size: calc(1.5rem + 0.8vw);
+  }
+
+  .tz-code {
+    display: inline;
+    justify-self: left;
+    margin: 0px 10px;
+    font-size: 1.7rem;
+    font-variant: small-caps;
+    font-weight: 300;
+    color: #000000b8;
+  }
+}
+
+/* LARGE */
+@media screen and (min-width: 900px) {
+  .city-card-grid {
+    grid: auto-flow 1fr / 1fr 33% 1fr;
+    /* width: 87%;
+    max-width: 950px; */
+  }
+
+  /*Main card*/
+  .city-card.main {
+    grid-template:
+      "title title" 2fr
+      "time time" 40%
+      "code code" 20%
+      "date date" 1fr;
+  }
+
+  /*Additional cards*/
+  .city-title {
+    font-size: calc(0.1em + 2vw);
+  }
+
+  .tz-code {
+    justify-self: center;
+  }
+}
+
+/*Stops font size scaling with viewport past this point*/
+/* @media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 5rem;
+  }
+  .city-title {
+    font-size: 1.5rem;
+  }
+  .city-time {
+    font-size: 2rem;
+  }
+} */
