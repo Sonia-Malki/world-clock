@@ -89,9 +89,11 @@ footer {
   padding: 16px;
   max-width: 100%;
   min-width: 0;
-  border: solid 2px #000;
   border-radius: 8px;
   background-color: #fff;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.27);
 }
 
 .city-card.main {
@@ -145,11 +147,6 @@ footer {
   text-align: left;
   font-size: 1rem;
   opacity: 0.8;
-}
-
-.tz-code {
-  display: none;
-  grid-area: code;
 }
 
 /* COLOUR THEMES */
@@ -270,16 +267,6 @@ footer {
   .city-time {
     font-size: 3.5rem;
   }
-
-  .tz-code {
-    display: inline;
-    justify-self: left;
-    margin: 0px 10px;
-    font-size: 1.7rem;
-    font-variant: small-caps;
-    font-weight: 300;
-    color: #000000b8;
-  }
 }
 
 /* LARGE */
@@ -293,7 +280,8 @@ footer {
   }
 
   /*Main card*/
-  .city-card.main {
+  .city-card {
+    margin-bottom: 16px;
   }
 
   /*Additional cards*/
